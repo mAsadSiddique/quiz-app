@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { quizDetails } from './Services/quiz_services';
-import { quizType, Quiz } from './types/quiz_types';
+import { quizType } from './types/quiz_types';
 import QuestionCards from './Components/questionsCards';
 import Timer from './Components/setTime';
 function App() {
@@ -52,7 +52,7 @@ function App() {
         </div>
       )
     }
-
+    console.log(Timer);
     if (!quiz.length)
     return <h3>Loading...</h3>
 
