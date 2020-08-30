@@ -26,13 +26,13 @@ componentDidMount() {
             }
         }
     }, 1000)
-
-    
 }
 
-componentWillUnmount() {
-  // clearInterval(myInterval);
-}
+
+
+// componentWillUnmount() {
+//   clearInterval(myInterval);
+// }
 
 
 
@@ -40,7 +40,7 @@ render() {
     const { minutes, seconds } = this.state
     return (
         <div>
-            { minutes === 0 && seconds === 0
+            {minutes === 0 && seconds === 0
                 ? <h1>Time Up!</h1>
                 : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
             }

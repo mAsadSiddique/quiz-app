@@ -32,7 +32,8 @@ function App() {
         }
         else {
           // alert("Your Final Score is " + score+ "  Out of" + quiz.length);
-          console.log(setResult(true));
+          // console.log(setResult(true));
+          setResult(true)
         }
   }
 
@@ -43,8 +44,8 @@ function App() {
       setCurrentStep(0);
       setScore(0);
     }
-    if(result){
-      // setResult(false);
+
+    if(result ){
       return(
         <div className="Question-container">
           <h3 className="result">{score}/{quiz.length}</h3>
@@ -52,7 +53,7 @@ function App() {
         </div>
       )
     }
-    console.log(Timer);
+
     if (!quiz.length)
     return <h3>Loading...</h3>
 
