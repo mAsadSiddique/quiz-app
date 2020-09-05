@@ -1,52 +1,65 @@
-import React, {Component} from 'react';
+import React, { Component, useState } from 'react';
 
-export default class Timer extends Component<{},{minutes: number, seconds: number}>{
-  state = {
-    minutes: 1,
-    seconds: 0,
-}
 
-componentDidMount() {
-    let myInterval = setInterval(() => {
-        const { seconds, minutes } = this.state;
 
-        if (seconds > 0) {
-           this.setState(({ seconds }) => ({
-                seconds: seconds - 1
-            }))
-        }
-        if (seconds === 0) {
-            if (minutes === 0) {
-                clearInterval(myInterval)
-            } else {
-                this.setState(({ minutes }) => ({
-                    minutes: minutes - 1,
-                    seconds: 59
+export default class Timer extends Component<{}, { minutes: number, seconds: number }>{
+
+    state = {
+        minutes: 0,
+        seconds: 10,
+    }
+
+    componentDidMount() {
+        let myInterval = setInterval(() => {
+            const { seconds, minutes } = this.state;
+
+            if (seconds > 0) {
+                this.setState(({ seconds }) => ({
+                    seconds: seconds - 1
                 }))
             }
-        }
-    }, 1000)
-}
-
-
-
-// componentWillUnmount() {
-//   clearInterval(myInterval);
-// }
-
-
-
-render() {
-    const { minutes, seconds } = this.state
-    return (
-        <div>
-            {minutes === 0 && seconds === 0
-                ? <h1>Time Up!</h1>
-                : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(myInterval)
+                } else {
+                    this.setState(({ minutes }) => ({
+                        minutes: minutes - 1,
+                        seconds: 59
+                    }))
+                }
             }
-        </div>
-    )
-}
+        }, 1000)
+    }
+
+
+
+    // componentWillUnmount() {
+    //   clearInterval(myInterval);
+    // }
+
+
+
+    render() {
+        // const [end, setEnd] = useState(true);
+        const { minutes, seconds } = this.state
+
+        if (seconds === 0) {
+            return (
+                <h3>Time-Up</h3>
+            )
+        } else {
+            return (
+                <React.Fragment>
+                {/* // <div> */}
+                    {minutes === 0 && seconds === 0
+                        ? <h1></h1>
+                        : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+                    }
+                {/* // </div> */}
+                </React.Fragment>
+            )
+        }
+    }
 }
 
 
