@@ -1,15 +1,16 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Component, Fragment, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import './App.css';
 import { quizDetails } from './Services/quiz_services';
 import { quizType } from './types/quiz_types';
 import QuestionCards from './Components/questionsCards';
 import Timer from './Components/setTime';
+
 function App() {
 
   let [quiz, setQuiz] = useState<quizType[]>([]);
   let [result, setResult] = useState(false);
-  let [score, setScore] = useState(0);
+  let [score, setScore] = useState<number>(0);
   let [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
@@ -39,6 +40,7 @@ function App() {
   }
 
 
+  /////////////////////////////////////////////////////////
   const handleRestart = (ev: any) => {
     // console.log(setResult(false));
     setResult(false);
@@ -67,9 +69,11 @@ function App() {
       <Helmet>
         <title>Quiz App</title>
       </Helmet>
+      <Timer
+      scores={score}
+      />
       <div className="App">
         <h1 className="head">Quiz App</h1>
-        <Timer />
         <h4 className="solved-question">Questions:  {currentStep}/{quiz.length}</h4>
         <QuestionCards
           options={quiz[currentStep].option}

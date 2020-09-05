@@ -1,18 +1,17 @@
 import React, { Component, useState } from 'react';
+import {scoreProps} from './../types/quiz_types';
 
 
 
-export default class Timer extends Component<{}, { minutes: number, seconds: number }>{
+ class Timer extends Component <{scores: number}, { minutes: number, seconds: number }>{
 
     state = {
         minutes: 0,
         seconds: 10,
     }
-
     componentDidMount() {
         let myInterval = setInterval(() => {
             const { seconds, minutes } = this.state;
-
             if (seconds > 0) {
                 this.setState(({ seconds }) => ({
                     seconds: seconds - 1
@@ -41,11 +40,11 @@ export default class Timer extends Component<{}, { minutes: number, seconds: num
 
     render() {
         // const [end, setEnd] = useState(true);
-        const { minutes, seconds } = this.state
+        const { minutes, seconds } = this.state;
 
         if (seconds === 0) {
             return (
-                <h3>Time-Up</h3>
+            <h3>{}</h3>
             )
         } else {
             return (
@@ -62,6 +61,7 @@ export default class Timer extends Component<{}, { minutes: number, seconds: num
     }
 }
 
+export default Timer;
 
 
 

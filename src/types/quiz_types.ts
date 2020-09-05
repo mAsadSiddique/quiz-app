@@ -15,8 +15,16 @@ export type quizType = {
     correct_answer: string
 }
 
+const scores: object[] = [{ type: 0 }]
+export type scoreProps = {
+    scores: number
+
+}
+
+
+
 export type questionPropsType = {
     question: string
     options: string[]
-    callback: (e: React.FormEvent<EventTarget>, ans: string)=>void
+    callback: (e: React.FormEvent<EventTarget>, ans: string) => void
 }
