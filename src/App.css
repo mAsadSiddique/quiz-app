@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.sub__head{
+    display: flex;
+    justify-content: space-around;
+}
+
 .Question-container {
     margin: 0px auto;
     margin-top: 50px;

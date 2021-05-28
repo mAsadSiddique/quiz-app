@@ -15,9 +15,11 @@ export type quizType = {
     correct_answer: string
 }
 
-const scores: object[] = [{ type: 0 }]
+
 export type scoreProps = {
     scores: number
+    minutes: number
+    seconds: number
 
 }
 
